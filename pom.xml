@@ -7,21 +7,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<description>https://kb.epam.com/display/EPMFARMJA/Git+Practice+2</description>
 	<dependencies>
-		<!-- Здесь добавляете ваши зависимости, например -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.12</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client-gson</artifactId>
-			<version>1.21.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.apis</groupId>
-			<artifactId>google-api-services-drive</artifactId>
-			<version>v3-rev15-1.21.0</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
@@ -37,6 +27,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
