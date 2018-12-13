@@ -12,7 +12,7 @@ public class MakerNiceNumber {
 
 	public void print(List<Card> cards) {
 		String stringNumberOfCard = "";
-		List<String> ñardsNumber;
+		List<String> cardsNumber;
 		String divisionByFour = "";
 		for (int i = 0; i < cards.size(); i++) {
 			for (int f = 0; f < cards.get(i).getNumberCard()
@@ -24,24 +24,24 @@ public class MakerNiceNumber {
 			}
 
 			String[] numberOfCard = stringNumberOfCard.split("");
-			ñardsNumber = new ArrayList<String>(
+			cardsNumber = new ArrayList<String>(
 					Arrays.asList(numberOfCard));
-			for (int r = 0; r < ñardsNumber.size(); r++) {
+			for (int r = 0; r < cardsNumber.size(); r++) {
 				if (r % SPLIT_PATTERN == 0) {
 
-					ñardsNumber.add(r, " ");
+					cardsNumber.add(r, " ");
 
 				}
 			}
-			for (int g = 0; g < ñardsNumber.size(); g++) {
-				divisionByFour += ñardsNumber.get(g);
+			for (int g = 0; g < cardsNumber.size(); g++) {
+				divisionByFour += cardsNumber.get(g);
 			}
 
 			System.out.println(cards.get(i).getTypeCard() + " : "
 					+ divisionByFour.substring(1));
 
 			divisionByFour = "";
-			ñardsNumber.clear();
+			cardsNumber.clear();
 			numberOfCard = null;
 			stringNumberOfCard = "";
 		}
