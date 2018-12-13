@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: Ilya_Zlobin
-Build-Jdk: 10.0.1
-Main-Class: com.epam.zlobin.generator.generator.CardGenerator
-Created-By: Maven Integration for Eclipse
-

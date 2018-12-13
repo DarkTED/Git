@@ -1,4 +1,4 @@
-package com.epam.zlobin.generator.generator;
+package com.epam.zlobin.generator.maker;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.epam.zlobin.generator.generator;
+package com.epam.zlobin.generator.maker;
 
 import com.epam.zlobin.generator.card.Card;
 import com.epam.zlobin.generator.card.mastercard.*;

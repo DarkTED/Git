@@ -35,7 +35,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.epam.zlobin.generator.generator.CardGenerator</mainClass>
+							<mainClass>com.epam.zlobin.generator.maker.CardGenerator</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
