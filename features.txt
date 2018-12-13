@@ -1,0 +1,31 @@
+ - master_card.v1.0  
+ 
+- master_card_electronic.v1.0
+ 
+- master_card_maestro.v1.0
+ 
+ 
+- mir_classical.v1.0
+ 
+ - mir_debbit.v1.0
+ 
+ 
+- mir_premium.v1.0 (git rebase mit)
+ 
+ 
+- visa_classic.v1.0
+ 
+ - visa_electron.v1.0
+ 
+ 
+- visa_gold.v1.0 (git reset --soft)
+ master_card_electronic.v1.0
+ 
+- master_card_maestro.v1.0
+ 
+- mir_classical.v1.0
+ 
+- mir_debbit.v1.0
+ 
+- mir_premium.v1.0
+ 
