@@ -33,6 +33,7 @@ public class MakerNiceNumber {
 
 				}
 			}
+			
 			for (int g = 0; g < cardsNumber.size(); g++) {
 				divisionByFour += cardsNumber.get(g);
 			}

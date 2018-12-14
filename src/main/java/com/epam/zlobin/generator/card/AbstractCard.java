@@ -89,10 +89,10 @@ public abstract class AbstractCard {
 		return String.valueOf(result);
 	}
 	/**
-	 * Random based on two numbers
+	 * Generate ran number
 	 * @param min
 	 * @param max
-	 * @return - Random number
+	 * @return - number
 	 */
 	public int rand(int min, int max) {
 		max -= min;
