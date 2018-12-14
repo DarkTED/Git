@@ -6,7 +6,7 @@ import com.epam.zlobin.generator.card.Card;
 
 public class MasterCard extends Master implements Card {
 
-	final String TYPECARD = "Master NumberCard";
+	final String TYPECARD = "MasterCard";
 
 	public String getTypeCard() {
 		return this.TYPECARD;

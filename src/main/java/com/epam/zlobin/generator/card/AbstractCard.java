@@ -2,7 +2,11 @@ package com.epam.zlobin.generator.card;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * This interface contains methods for generating number
+ * @author Ilya_Zlobin
+ *
+ */
 public abstract class AbstractCard {
 	protected List<String> numberOfCard = new ArrayList<String>();
 	protected final static int LENGHT_NUMBER_CARD = 16;
@@ -12,6 +16,11 @@ public abstract class AbstractCard {
 	private final static int ALG_NUMBER_LUHN = 9;
 	private final static int ALG_EVEN_NUMBERED_INDEX = 2;
 
+	/**
+	 * Returns the part of the number responsible for identification
+	 * @param cardNumber -Card number
+	 * @return -the part of the number responsible for identification
+	 */
 	public String generateIdentificationNumberOfCard(
 			List<String> cardNumber) {
 
@@ -38,7 +47,11 @@ public abstract class AbstractCard {
 
 		return identificationNumbetOfCard;
 	}
-
+	/**
+	 * Generates the number according to the Luhn algorithm. The method takes the input numbers.
+	 * @param numbe method takes the input numbers cards
+	 * @return - the number according to the Luhn algorithm
+	 */
 	public String generateNumbForAlgorithmLuhn(List<String> numbe) {
 		int sum = 0;
 		int numberForLuna = 0;
@@ -75,7 +88,12 @@ public abstract class AbstractCard {
 		numberOfCardForSplit = "";
 		return String.valueOf(result);
 	}
-
+	/**
+	 * Random based on two numbers
+	 * @param min
+	 * @param max
+	 * @return - Random number
+	 */
 	public int rand(int min, int max) {
 		max -= min;
 		return (int) ((Math.random() * ++max) + min);
