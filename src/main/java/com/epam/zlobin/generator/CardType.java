@@ -1,63 +1,63 @@
-package com.epam.zlobin.generator.generator;
+package com.epam.zlobin.generator;
 
-import com.epam.zlobin.generator.card.Card;
+import com.epam.zlobin.generator.card.AbstractCard;
 import com.epam.zlobin.generator.card.mastercard.*;
 import com.epam.zlobin.generator.card.mir.*;
 import com.epam.zlobin.generator.card.visa.*;
 
-public enum TypesCard {
+public enum CardType {
 	MAESTRO("MasterCardMaestro") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MasterCardMaestro();
 		}
 	},
 	MASTER_CARD("Master Card") {
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MasterCard();
 		}
 	},
 	MASTER_CARD_ELECTRONIC("MasterCarde Electronic") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MasterCardElectronic();
 		}
 	},
 
 	MIR_CLASSIC("Mir Classic") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MirClassical();
 		}
 	},
 	MIR_DEBIT("Mir Debit") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MirDebit();
 		}
 	},
 	MIR_PREMIUM("Mir Premium") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new MirPremium();
 		}
 	},
 
 	VISA_CLASSIC("Visa Classic") {
 		@Override
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new VisaClassic();
 		}
 	},
 	VISA_ELECTRON("Visa Electron") {
 
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new VisaElectron();
 		}
 	},
 	VISA_GOLD("Visa Gold") {
 
-		protected Card getObjectCard() {
+		public AbstractCard getCard() {
 			return new VisaGold();
 		}
 	};
@@ -68,9 +68,9 @@ public enum TypesCard {
 		return this.cardName;
 	}
 
-	public static TypesCard getTypeCard(String cardName) {
-		TypesCard enamObject = null;
-		for (TypesCard value : TypesCard.values()) {
+	public static CardType getType(String cardName) {
+		CardType enamObject = null;
+		for (CardType value : CardType.values()) {
 			if (value.getCardName().contains(cardName)) {
 				enamObject = value;
 			}
@@ -79,10 +79,10 @@ public enum TypesCard {
 		return enamObject;
 	}
 
-	private TypesCard(String cardName) {
+	private CardType(String cardName) {
 		this.cardName = cardName;
 	}
 
-	protected abstract Card getObjectCard();
+	public abstract  AbstractCard getCard();
 
 }

@@ -1,23 +1,13 @@
 package com.epam.zlobin.generator.card.mir;
 
-import java.util.List;
+public class MirPremium extends Mir {
 
-import com.epam.zlobin.generator.card.Card;
-
-public class MirPremium extends Mir implements Card {
-
-	final String TYPECARD = "Mir Premium";
-
-	public String getTypeCard() {
-		return this.TYPECARD;
-	}
+	private static final String TYPECARD = "Mir Premium";
 
 	public MirPremium() {
-		this.generateNumberOfCard();
-	}
-
-	public List<String> getNumberCard() {
-		return this.numberOfCard;
+		super.setTypecard(TYPECARD);
+		this.getTypeCard();
+		this.createNumber();
 	}
 
 }

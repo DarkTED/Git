@@ -1,22 +1,13 @@
 package com.epam.zlobin.generator.card.mir;
 
-import java.util.List;
+public class MirDebit extends Mir {
 
-import com.epam.zlobin.generator.card.Card;
-
-public class MirDebit extends Mir implements Card {
-
-	final String TYPECARD = "Mir Debit";
-
-	public String getTypeCard() {
-		return this.TYPECARD;
-	}
+	private static final String TYPECARD = "Mir Debit";
 
 	public MirDebit() {
-		this.generateNumberOfCard();
+		super.setTypecard(TYPECARD);
+		this.getTypeCard();
+		this.createNumber();
 	}
 
-	public List<String> getNumberCard() {
-		return this.numberOfCard;
-	}
 }

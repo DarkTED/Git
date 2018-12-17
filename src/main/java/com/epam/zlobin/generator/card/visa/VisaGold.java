@@ -1,23 +1,13 @@
 package com.epam.zlobin.generator.card.visa;
 
-import java.util.List;
+public class VisaGold extends Visa {
 
-import com.epam.zlobin.generator.card.Card;
-
-public class VisaGold extends Visa implements Card {
-
-	final String TYPECARD = "Visa Gold";
-
-	public String getTypeCard() {
-		return this.TYPECARD;
-	}
+	private static final String TYPECARD = "Visa Gold";
 
 	public VisaGold() {
-		this.generateNumberOfCard();
-	}
-
-	public List<String> getNumberCard() {
-		return this.numberOfCard;
+		super.setTypecard(TYPECARD);
+		this.getTypeCard();
+		this.createNumber();
 	}
 
 }

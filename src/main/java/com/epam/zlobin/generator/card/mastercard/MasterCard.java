@@ -1,22 +1,13 @@
 package com.epam.zlobin.generator.card.mastercard;
 
-import java.util.List;
+public class MasterCard extends Master {
 
-import com.epam.zlobin.generator.card.Card;
-
-public class MasterCard extends Master implements Card {
-
-	final String TYPECARD = "MasterCard";
-
-	public String getTypeCard() {
-		return this.TYPECARD;
-	}
+	public static final String TYPECARD = "MasterCard";
 
 	public MasterCard() {
-		this.generateNumberOfCard();
+		super.setTypecard(TYPECARD);
+		this.getTypeCard();
+		this.createNumber();
 	}
 
-	public List<String> getNumberCard() {
-		return this.numberOfCard;
-	}
 }

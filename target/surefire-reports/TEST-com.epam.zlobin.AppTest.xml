@@ -19,7 +19,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-10.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\ILYA_Z~1\AppData\Local\Temp\surefire3989883546844527232\surefirebooter7108078065250970816.jar C:\Users\Ilya_Zlobin\AppData\Local\Temp\surefire3989883546844527232 2018-12-14T12-53-51_175-jvmRun1 surefire9171888123892980168tmp surefire_016432924206999450800tmp"/>
+    <property name="sun.java.command" value="C:\Users\ILYA_Z~1\AppData\Local\Temp\surefire4048317112024308131\surefirebooter11658951130315655991.jar C:\Users\Ilya_Zlobin\AppData\Local\Temp\surefire4048317112024308131 2018-12-21T16-20-44_123-jvmRun1 surefire5607230251460142390tmp surefire_016688755002675587150tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Ilya_Zlobin\eclipse-workspace\JTC\Gerrit\ilya_zlobin_Git_Exercise\target\test-classes;C:\Users\Ilya_Zlobin\eclipse-workspace\JTC\Gerrit\ilya_zlobin_Git_Exercise\target\classes;C:\Users\Ilya_Zlobin\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Ilya_Zlobin\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -35,7 +35,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ILYA_Z~1\AppData\Local\Temp\surefire3989883546844527232\surefirebooter7108078065250970816.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ILYA_Z~1\AppData\Local\Temp\surefire4048317112024308131\surefirebooter11658951130315655991.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="10.0.1+10"/>
@@ -63,5 +63,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="54.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.epam.zlobin.AppTest" time="0"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.epam.zlobin.AppTest" time="0.016"/>
 </testsuite>
