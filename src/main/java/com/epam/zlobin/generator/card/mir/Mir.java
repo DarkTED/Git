@@ -14,9 +14,9 @@ public abstract class Mir extends AbstractCard {
     public static final int NUMBER_OF_PAYMENT_SYSTEM = 2;
     public static final int BIN_FOR_NUMBER_OF_CARD = 22456;
 
-    protected void createDataCart(String CARD_TYPE_NAME) {
-
-        super.setCardTypeName(CARD_TYPE_NAME);
-        super.generateNumber(NUMBER_OF_PAYMENT_SYSTEM, BIN_FOR_NUMBER_OF_CARD);
+    protected void createDataCart(String cardTypeName)  {
+        
+        setCardTypeName(cardTypeName);
+        generateNumber(NUMBER_OF_PAYMENT_SYSTEM, BIN_FOR_NUMBER_OF_CARD);
     }
 }

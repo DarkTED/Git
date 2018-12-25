@@ -20,11 +20,11 @@ public abstract class AbstractCard {
     public static final int ALGORITHM_LUHN_MODULE = 10;
     public static final int ALGORITHM_LUHN_NUMBER = 9;
     public static final int ALGORITHM_LUHN_EVEN_NUMBERED_INDEX = 2;
-    private String cardType;
+    private String typeCardName;
     protected int[] numberOfCard = new int[NUMBER_CARD_LENGHT];
 
     public void setCardTypeName(String cardType) {
-        this.cardType = cardType;
+        this.typeCardName = cardType;
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class AbstractCard {
         int[] identificationNumberForRand = new int[lenghtIdentification];
 
         for (int i = 0; i < identificationNumberForRand.length; i++) {
-            identificationNumberForRand[i] = this.getRandomizedValue(MIN_RANDOM,
+            identificationNumberForRand[i] = getRandomizedValue(MIN_RANDOM,
                     MAX_RANDOM);
         }
 
@@ -104,12 +104,12 @@ public abstract class AbstractCard {
      * @return
      */
     protected int[] generateNumber(int numberOfPaymentSystem, int binForNumberCard ) {
-        int[] iin = this.getIin(numberOfPaymentSystem, binForNumberCard); 
+        int[] iin = getIin(numberOfPaymentSystem, binForNumberCard); 
         System.arraycopy(iin, 0, numberOfCard, 0, iin.length);
-        System.arraycopy(this.generateIdentificationNumber(iin), 0,
+        System.arraycopy(generateIdentificationNumber(iin), 0,
                 numberOfCard, iin.length,
-                this.generateIdentificationNumber(iin).length);
-        this.getLastNumber();
+                generateIdentificationNumber(iin).length);
+        getLastNumber();
 
         return numberOfCard;
 
@@ -125,7 +125,7 @@ public abstract class AbstractCard {
     }
 
     public String getCardTypeName() {
-        return this.cardType;
+        return typeCardName;
     }
 
     /**

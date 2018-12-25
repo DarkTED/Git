@@ -5,7 +5,7 @@ public class VisaClassic extends Visa {
 	private static final String CARD_TYPE_NAME = "Visa Classic";
 
 	public VisaClassic() {
-        this.createDataCart(CARD_TYPE_NAME);
+        createDataCart(CARD_TYPE_NAME);
     }
 
 }

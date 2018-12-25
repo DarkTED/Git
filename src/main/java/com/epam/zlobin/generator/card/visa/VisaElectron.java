@@ -5,7 +5,7 @@ public class VisaElectron extends Visa {
 	private static final String CARD_TYPE_NAME = "Visa Electron";
 
 	public VisaElectron() {
-        this.createDataCart(CARD_TYPE_NAME);
+        createDataCart(CARD_TYPE_NAME);
     }
 
 }

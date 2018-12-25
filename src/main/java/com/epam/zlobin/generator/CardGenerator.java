@@ -48,15 +48,17 @@ public class CardGenerator {
         ArrayList<AbstractCard> cards = new ArrayList<AbstractCard>();
 
         for (String name : cardNames) {
-            try {
-                cards.add(CardType.getType(name).getCard());
 
-            } catch (IndexOutOfBoundsException | NullPointerException e) {
+            CardType cardType = CardType.getType(name);
+            if (!(cardType == null)) {
+                cards.add(cardType.getCard());
 
-                OutputResultOfApplication output = 
-                        new OutputResultOfApplication();
-                output.printError(e, name);
+            } else {
+                OutputResultOfApplication output = new OutputResultOfApplication();
+                output.printError(name);
+                continue;
             }
+
         }
 
         return cards;

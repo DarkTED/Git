@@ -35,9 +35,12 @@ public class OutputResultOfApplication {
      * @param e    - exception
      * @param name - cardName
      */
-    public void printError(RuntimeException e, String name) {
-        System.out.printf(e + " The user entered an invalid argument.Card | "
-                +" %-28s - will not be generated!\n", name );
+    public void printError(String name) {
+        
+        System.out.printf( 
+                "The user entered an invalid argument.Card | "
+                +" %-28s - will not be generated!\n", name);
+        ;
     }
     /**
      * Makes conversion to Integer.
