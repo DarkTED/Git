@@ -17,7 +17,7 @@ public class OutputResultOfApplication {
     public void printNumber(List<AbstractCard> cards) {
 
         for (AbstractCard card : cards) {
-            System.out.printf("%-20s ", card.getTypeCard());
+            System.out.printf("%-20s ", card.getCardTypeName());
             if (card.getNumberCard().length == 16) {
 
                 System.out.printf(PATTERN_FOR_PRINTF,

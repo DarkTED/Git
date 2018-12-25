@@ -2,12 +2,10 @@ package com.epam.zlobin.generator.card.visa;
 
 public class VisaGold extends Visa {
 
-	private static final String TYPECARD = "Visa Gold";
+	private static final String CARD_TYPE_NAME = "Visa Gold";
 
 	public VisaGold() {
-		super.setTypecard(TYPECARD);
-		this.getTypeCard();
-		this.createNumber();
-	}
+        this.createDataCart(CARD_TYPE_NAME);
+    }
 
 }

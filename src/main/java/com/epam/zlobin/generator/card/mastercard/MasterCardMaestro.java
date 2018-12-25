@@ -2,12 +2,10 @@ package com.epam.zlobin.generator.card.mastercard;
 
 public class MasterCardMaestro extends Master {
 
-	private static final String TYPECARD = "MasterCardMaestro";
+	private static final String CARD_TYPE_NAME = "MasterCardMaestro";
 
 	public MasterCardMaestro() {
-		super.setTypecard(TYPECARD);
-		this.getTypeCard();
-		this.createNumber();
+		this.createDataCart(CARD_TYPE_NAME);
 	}
 
 }

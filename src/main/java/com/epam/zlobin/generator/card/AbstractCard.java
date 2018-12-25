@@ -5,18 +5,15 @@ import java.security.SecureRandom;
 /**
  * This interface contains methods for generating number
  * 
- * @author Ilya_Zlobin NUMBER_CARD_LENGHT - card number length; MIN_RANDOM - the
- *         minimum value for the randomness;
+ * @author Ilya_Zlobin NUMBER_CARD_LENGHT - card number length; 
+ * MIN_RANDOM - the minimum value for the randomness;
+ * MAX_RANDOM - the maximum value for the randomness;
+ * ALGORITHM_LUHN_NUMBER - the number according to the luhn algorithm;
+ * ALGORITHM_LUHN_MODULE - the number of the algorithm Luhn, division module
+ * ALGORITHM_LUHN_EVEN_NUMBERED_INDEX - the number of the algorithm Luhn, to call the desired index;
  */
 public abstract class AbstractCard {
 
-    /*
-     * MIN_RANDOM - the minimum value for the randomness; MAX_RANDOM - the
-     * maximum value for the randomness; ALGORITHM_LUHN_MODULE - module;
-     * ALGORITHM_LUHN_NUMBER - the number according to the luhn algorithm;
-     * ALGORITHM_LUHN_EVEN_NUMBERED_INDEX - the number of the algorithm Luhn, to
-     * call the desired index;
-     */
     protected static final int NUMBER_CARD_LENGHT = 16;
     public static final int MIN_RANDOM = 1;
     public static final int MAX_RANDOM = 9;
@@ -26,7 +23,7 @@ public abstract class AbstractCard {
     private String cardType;
     protected int[] numberOfCard = new int[NUMBER_CARD_LENGHT];
 
-    public void setTypecard(String cardType) {
+    public void setCardTypeName(String cardType) {
         this.cardType = cardType;
     }
 
@@ -93,7 +90,7 @@ public abstract class AbstractCard {
      * @param max
      * @return - a random number
      */
-   private final int getRandomizedValue(int min, int max) {
+   private int getRandomizedValue(int min, int max) {
         SecureRandom secureRandom = new SecureRandom();
         max -= min;
         return (int) ((secureRandom.nextDouble() * ++max) + min);
@@ -127,7 +124,7 @@ public abstract class AbstractCard {
         return numberOfCard;
     }
 
-    public String getTypeCard() {
+    public String getCardTypeName() {
         return this.cardType;
     }
 
