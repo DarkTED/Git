@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.zlobin.generator.card.AbstractCard;
-import com.epam.zlobin.generator.output.OutputResultOfApplication;
+import com.epam.zlobin.generator.output.OutputResult;
 
 /**
  * Main class with main method Card generation program
@@ -14,13 +14,9 @@ import com.epam.zlobin.generator.output.OutputResultOfApplication;
  * @version 1.0
  */
 public class CardGenerator {
-    /**
-     * An array with the names of cards.
-     * 
-     * @param args - input data
-     */
-    public static void main(String[] args) {
+    private OutputResult output = new OutputResult();
 
+    public static void main(String[] args) {
         CardGenerator cardGenerator = new CardGenerator();
         cardGenerator.run(args);
 
@@ -33,7 +29,7 @@ public class CardGenerator {
      */
     public void run(String[] args) {
         List<AbstractCard> cards = getCards(args);
-        new OutputResultOfApplication().printNumber(cards);
+        output.printNumber(cards);
 
     }
 
@@ -49,14 +45,15 @@ public class CardGenerator {
 
         for (String name : cardNames) {
 
-            CardType cardType = CardType.getType(name);
-            if (!(cardType == null)) {
+            try {
+                CardType cardType = CardType.getType(name);
+
                 cards.add(cardType.getCard());
 
-            } else {
-                OutputResultOfApplication output = new OutputResultOfApplication();
-                output.printError(name);
-                continue;
+            } catch (IllegalArgumentException e) {
+
+                output.printError(e, name);
+
             }
 
         }

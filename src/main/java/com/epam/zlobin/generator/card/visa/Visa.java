@@ -6,18 +6,17 @@ import com.epam.zlobin.generator.card.AbstractCard;
  * This is the parent class for the Visa system, which stores common constants
  * for all visa cards
  * 
- * @author Ilya_Zlobin 
+ * @author Ilya_Zlobin
  */
 public abstract class Visa extends AbstractCard {
 
-	public static final int NUMBER_OF_PAYMENT_SYSTEM = 4;
-	public static final int BIN_FOR_NUMBER_OF_CARD = 45643;
+    public int[] paymentNumber = { 4 };
+    public int[] binNumber = { 4, 5, 6, 4, 3 };
 
     protected void createDataCart(String cardTypeName) {
-        
-        setCardTypeName(cardTypeName);
-        generateNumber(NUMBER_OF_PAYMENT_SYSTEM, BIN_FOR_NUMBER_OF_CARD);
-    }
 
+        setCardTypeName(cardTypeName);
+        generateNumber(paymentNumber, binNumber);
+    }
 
 }

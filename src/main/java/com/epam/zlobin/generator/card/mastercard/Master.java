@@ -11,13 +11,13 @@ import com.epam.zlobin.generator.card.AbstractCard;
  */
 public abstract class Master extends AbstractCard {
 
-    public static final int NUMBER_OF_PAYMENT_SYSTEM = 5;
-    public static final int BIN_FOR_NUMBER_OF_CARD = 72099;
+    public int[] paymentNumber = { 5 };
+    public int[] binNumber = { 7, 2, 0, 9, 9 };
 
     protected void createDataCart(String cardTypeName) {
 
         setCardTypeName(cardTypeName);
-        generateNumber(NUMBER_OF_PAYMENT_SYSTEM, BIN_FOR_NUMBER_OF_CARD);
+        generateNumber(paymentNumber, binNumber);
     }
 
 }

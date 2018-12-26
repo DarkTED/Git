@@ -1,7 +1,5 @@
 package com.epam.zlobin.generator;
 
-
-
 import com.epam.zlobin.generator.card.AbstractCard;
 import com.epam.zlobin.generator.card.mastercard.*;
 import com.epam.zlobin.generator.card.mir.*;
@@ -88,27 +86,26 @@ public enum CardType {
      * @param cardName -the name of the card
      * @return - the card type
      */
-    
+
     public static CardType getType(String cardName) {
-        CardType enamObject = null ;
+        CardType enamObject = null;
         for (CardType value : CardType.values()) {
             if (value.getCardName().equals(cardName)) {
-                enamObject = value;
-                 } 
-            
-            
-        }
-        
-        
 
+                enamObject = value;
+            }
+
+        }
+        if (enamObject == null) {
+            throw new IllegalArgumentException();
+        }
 
         return enamObject;
     }
-    
-
 
     private CardType() {
     }
+
     private CardType(String cardName) {
         this.cardName = cardName;
     }

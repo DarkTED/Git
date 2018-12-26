@@ -2,9 +2,9 @@ package com.epam.zlobin.generator.card.mir;
 
 public class MirClassical extends Mir {
 
-	private static final String CARD_TYPE_NAME = "Mir Classic";
+    private static final String CARD_TYPE_NAME = "Mir Classic";
 
-	public MirClassical(){
+    public MirClassical() {
         createDataCart(CARD_TYPE_NAME);
     }
 

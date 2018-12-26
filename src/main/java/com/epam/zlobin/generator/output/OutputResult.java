@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.epam.zlobin.generator.card.AbstractCard;
 
-public class OutputResultOfApplication {
-    
+public class OutputResult {
+
     public static final String PATTERN_FOR_PRINTF = "%d%d%d%d %d%d%d%d %d%d%d%d %d%d%d%d\n";
 
     /**
@@ -27,6 +27,7 @@ public class OutputResultOfApplication {
             }
 
         }
+
     }
 
     /**
@@ -35,18 +36,14 @@ public class OutputResultOfApplication {
      * @param e    - exception
      * @param name - cardName
      */
-    public void printError(String name) {
-        
-        System.out.printf( 
-                "The user entered an invalid argument.Card | "
-                +" %-28s - will not be generated!\n", name);
-        ;
+    public void printError(RuntimeException e, String name) {
+
+        System.out.printf(e + " The user entered an invalid argument.Card | "
+
+                + " %-28s - will not be generated!\n", name);
+
     }
-    /**
-     * Makes conversion to Integer.
-     * @param array
-     * @return - Integer
-     */
+
     private static Integer[] toIntegers(int[] array) {
         Integer[] result = new Integer[array.length];
 
