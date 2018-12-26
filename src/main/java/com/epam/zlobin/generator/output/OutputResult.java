@@ -8,6 +8,7 @@ import com.epam.zlobin.generator.card.AbstractCard;
 public class OutputResult {
 
     public static final String PATTERN_FOR_PRINTF = "%d%d%d%d %d%d%d%d %d%d%d%d %d%d%d%d\n";
+    public static final int PATTERN_NUMBER_LENGHT = 16;
 
     /**
      * Print a beautiful number.
@@ -17,13 +18,14 @@ public class OutputResult {
     public void printNumber(List<AbstractCard> cards) {
 
         for (AbstractCard card : cards) {
-            System.out.printf("%-20s ", card.getCardTypeName());
-            if (card.getNumberCard().length == 16) {
+            System.out.printf("%-20s ", card.getCardName());
+
+            if (card.getCardNumber().length == PATTERN_NUMBER_LENGHT) {
 
                 System.out.printf(PATTERN_FOR_PRINTF,
-                        (Object[]) toIntegers(card.getNumberCard()));
+                        toIntegers(card.getCardNumber()));
             } else {
-                System.out.println(Arrays.toString(card.getNumberCard()));
+                System.out.println(Arrays.toString(card.getCardNumber()));
             }
 
         }

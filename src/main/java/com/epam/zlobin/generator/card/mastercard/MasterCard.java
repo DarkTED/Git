@@ -1,11 +1,15 @@
 package com.epam.zlobin.generator.card.mastercard;
 
-public class MasterCard extends Master {
+import com.epam.zlobin.generator.card.AbstractCard;
 
-    public static final String CARD_TYPE_NAME = "MasterCard";
+public class MasterCard extends AbstractCard {
+
+    public static final String CARD_NAME = "MasterCard";
+    protected static final int[] PAYMENT_NUMBER = { 5 };
+    protected static final int[] BIN_NUMBER ={ 7, 2, 0, 9, 9 };
 
     public MasterCard() {
-        createDataCart(CARD_TYPE_NAME);
+        super(CARD_NAME, PAYMENT_NUMBER, BIN_NUMBER);
     }
 
 }

@@ -12,109 +12,35 @@ import com.epam.zlobin.generator.card.visa.*;
  *
  */
 public enum CardType {
-    MAESTRO("MasterCard Maestro") {
-        @Override
-        public AbstractCard getCard() {
-            return new MasterCardMaestro();
-        }
-    },
-    MASTER_CARD("Master Card") {
-        public AbstractCard getCard() {
-            return new MasterCard();
-        }
-    },
-    MASTER_CARD_ELECTRONIC("MasterCarde Electronic") {
-        @Override
-        public AbstractCard getCard() {
-            return new MasterCardElectronic();
-        }
-    },
 
-    MIR_CLASSIC("Mir Classic") {
-        @Override
-        public AbstractCard getCard() {
-            return new MirClassical();
-        }
-    },
-    MIR_DEBIT("Mir Debit") {
-        @Override
-        public AbstractCard getCard() {
-            return new MirDebit();
-        }
-    },
-    MIR_PREMIUM("Mir Premium") {
-        @Override
-        public AbstractCard getCard() {
-            return new MirPremium();
-        }
-    },
+    MAESTRO(new MasterCardMaestro()),
+    
+    MASTER_CARD(new MasterCard()),
+    
+    MASTER_CARD_ELECTRONIC(new MasterCardElectronic()),
+    
+    MIR_CLASSIC(new MirClassical()),
+    
+    MIR_DEBI(new MirDebit()),
+    
+    MIR_PREMIUM(new MirPremium()),
+    
+    VISA_CLASSIC(new VisaClassic()),
+    
+    VISA_ELECTRON(new VisaElectron()),
+    
+    VISA_GOLD(new VisaGold());
 
-    VISA_CLASSIC("Visa Classic") {
-        @Override
-        public AbstractCard getCard() {
-            return new VisaClassic();
-        }
-    },
-    VISA_ELECTRON("Visa Electron") {
+    private AbstractCard card;
 
-        public AbstractCard getCard() {
-            return new VisaElectron();
-        }
-    },
-
-    VISA_GOLD("Visa Gold") {
-
-        public AbstractCard getCard() {
-            return new VisaGold();
-        }
-    };
-
-    private String cardName;
-
-    /**
-     * Returns the name of the card;
-     * 
-     * @return - the name of the card
-     */
-    public String getCardName() {
-        return cardName;
+    CardType(AbstractCard card) {
+        this.card = card;
     }
 
-    /**
-     * Returns the card type;
-     * 
-     * @param cardName -the name of the card
-     * @return - the card type
-     */
-
-    public static CardType getType(String cardName) {
-        CardType enamObject = null;
-        for (CardType value : CardType.values()) {
-            if (value.getCardName().equals(cardName)) {
-
-                enamObject = value;
-            }
-
-        }
-        if (enamObject == null) {
-            throw new IllegalArgumentException();
-        }
-
-        return enamObject;
+    public AbstractCard getCard() {
+        return card;
     }
 
-    private CardType() {
-    }
 
-    private CardType(String cardName) {
-        this.cardName = cardName;
-    }
-
-    /**
-     * Returns an object of type card;
-     * 
-     * @return - an object of type card
-     */
-    public abstract AbstractCard getCard();
 
 }

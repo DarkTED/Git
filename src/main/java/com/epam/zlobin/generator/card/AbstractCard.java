@@ -33,31 +33,45 @@ public abstract class AbstractCard {
      * Card number length;
      */
     public static final int NUMBER_CARD_LENGHT = 16;
-    protected int[] numberOfCard = new int[NUMBER_CARD_LENGHT];
-    private String typeCardName;
+    private int[] cardNumber = new int[NUMBER_CARD_LENGHT];
+    private String cardName;
+    private int[] paymentSystemNumber;
+    private int[] binForNumberCard;
 
-    public void setCardTypeName(String cardType) {
-        this.typeCardName = cardType;
+    public AbstractCard(String cardName, int[] paymentNumber, int[] binNumber) {
+        this.paymentSystemNumber = paymentNumber;
+        this.binForNumberCard = binNumber;
+        this.cardName = cardName;
+
     }
 
-    private int[] generateIdentificationNumber(int num) {
+    public void generateNumber() {
+        System.arraycopy(paymentSystemNumber, 0, cardNumber, 0,
+                paymentSystemNumber.length);
+        System.arraycopy(binForNumberCard, 0, cardNumber,
+                paymentSystemNumber.length, binForNumberCard.length);
+        int iinRangesLenght = paymentSystemNumber.length
+                + binForNumberCard.length;
+        generateIdentificationNumber(iinRangesLenght);
+        cardNumber[cardNumber.length - 1] = generateNumbForAlgorithmLuhn(
+                cardNumber);
 
-        int lenghtIdentification = AbstractCard.NUMBER_CARD_LENGHT - num - 1;
-        int[] identificationNumberForRand = new int[lenghtIdentification];
+    }
 
-        for (int i = 0; i < identificationNumberForRand.length; i++) {
-            identificationNumberForRand[i] = getRandomizedValue(MIN_RANDOM,
-                    MAX_RANDOM);
+    private void generateIdentificationNumber(int iinLenght) {
+
+        int identificationLenght = NUMBER_CARD_LENGHT - iinLenght - 1;
+        for (int i = 0; i < identificationLenght; i++) {
+            cardNumber[iinLenght++] = getRandomValue(MIN_RANDOM, MAX_RANDOM);
         }
 
-        return identificationNumberForRand;
     }
 
-    private int generateNumbForAlgorithmLuhn(int[] numbe) {
+    private int generateNumbForAlgorithmLuhn(int[] cardNumber) {
 
         int sum = 0;
-        for (int i = 0; i < numbe.length; i++) {
-            int numberForLuna = numbe[i];
+        for (int i = 0; i < cardNumber.length; i++) {
+            int numberForLuna = cardNumber[i];
             int evenNumbers = numberForLuna;
             if (i % ALGORITHM_LUHN_EVEN_NUMBERED_INDEX == 0) {
 
@@ -70,37 +84,18 @@ public abstract class AbstractCard {
 
             sum = sum + evenNumbers;
         }
-        int result;
+        int result = 0;
         if (!(sum % ALGORITHM_LUHN_MODULE == 0)) {
-            int i = sum % ALGORITHM_LUHN_MODULE;
-            result = ALGORITHM_LUHN_MODULE - i;
-        } else {
-            result = 0;
+            int residue = sum % ALGORITHM_LUHN_MODULE;
+            result = ALGORITHM_LUHN_MODULE - residue;
         }
         return result;
     }
 
-    private int getRandomizedValue(int min, int max) {
+    private int getRandomValue(int min, int max) {
         SecureRandom secureRandom = new SecureRandom();
         max -= min;
         return (int) ((secureRandom.nextDouble() * ++max) + min);
-    }
-
-    protected int[] generateNumber(int[] numberOfPaymentSystem,
-            int[] binForNumberCard) {
-        System.arraycopy(numberOfPaymentSystem, 0, numberOfCard, 0,
-                numberOfPaymentSystem.length);
-        System.arraycopy(binForNumberCard, 0, numberOfCard,
-                numberOfPaymentSystem.length, binForNumberCard.length);
-        int iinRangesLenght = numberOfPaymentSystem.length + binForNumberCard.length;
-        int[] identificationNumber = generateIdentificationNumber(iinRangesLenght);
-        System.arraycopy(identificationNumber, 0, numberOfCard, iinRangesLenght,
-                identificationNumber.length);
-        numberOfCard[numberOfCard.length - 1] = generateNumbForAlgorithmLuhn(
-                numberOfCard);
-
-        return numberOfCard;
-
     }
 
     /**
@@ -108,8 +103,8 @@ public abstract class AbstractCard {
      * 
      * @return - the card number
      */
-    public int[] getNumberCard() {
-        return numberOfCard;
+    public int[] getCardNumber() {
+        return cardNumber;
     }
 
     /**
@@ -117,8 +112,8 @@ public abstract class AbstractCard {
      * 
      * @return - the name of the card
      */
-    public String getCardTypeName() {
-        return typeCardName;
+    public String getCardName() {
+        return cardName;
     }
 
 }

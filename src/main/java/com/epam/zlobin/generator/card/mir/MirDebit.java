@@ -1,11 +1,15 @@
 package com.epam.zlobin.generator.card.mir;
 
-public class MirDebit extends Mir {
+import com.epam.zlobin.generator.card.AbstractCard;
 
-    private static final String CARD_TYPE_NAME = "Mir Debit";
+public class MirDebit extends AbstractCard {
+
+    public static final String CARD_NAME = "Mir Debit";
+    protected static final int[] PAYMENT_NUMBER = { 2 };
+    protected static final int[] BIN_NUMBER ={ 2, 2, 4, 5, 6 };
 
     public MirDebit() {
-        createDataCart(CARD_TYPE_NAME);
+        super(CARD_NAME, PAYMENT_NUMBER, BIN_NUMBER);
     }
 
 }

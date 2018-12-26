@@ -1,11 +1,15 @@
 package com.epam.zlobin.generator.card.visa;
 
-public class VisaElectron extends Visa {
+import com.epam.zlobin.generator.card.AbstractCard;
 
-    private static final String CARD_TYPE_NAME = "Visa Electron";
+public class VisaElectron extends AbstractCard {
+
+    public static final String CARD_NAME = "Visa Electron";
+    protected static final int[] PAYMENT_NUMBER = { 4 };
+    protected static final int[] BIN_NUMBER = { 4, 5, 6, 4, 3 };
 
     public VisaElectron() {
-        createDataCart(CARD_TYPE_NAME);
+        super(CARD_NAME, PAYMENT_NUMBER, BIN_NUMBER);
     }
 
 }

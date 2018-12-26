@@ -46,20 +46,42 @@ public class CardGenerator {
         for (String name : cardNames) {
 
             try {
-                CardType cardType = CardType.getType(name);
+                AbstractCard card = getCard(name);
 
-                cards.add(cardType.getCard());
+                cards.add(card);
 
             } catch (IllegalArgumentException e) {
 
                 output.printError(e, name);
-
             }
-
         }
 
         return cards;
+    }
 
+    /**
+     * Returns the card type;
+     * 
+     * @param cardName -the name of the card
+     * @return - the card type
+     */
+    public AbstractCard getCard(String cardName) {
+        AbstractCard result = null;
+
+        for (CardType value : CardType.values()) {
+            if (value.getCard().getCardName().equalsIgnoreCase(cardName)) {
+                result = value.getCard();
+                break;
+            }
+        }
+
+        if (result != null) {
+            result.generateNumber();
+        } else {
+            throw new IllegalArgumentException(cardName);
+        }
+
+        return result;
     }
 
 }
